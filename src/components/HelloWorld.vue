@@ -40,10 +40,11 @@ export default {
   props: {
     msg: String
   },
-  mounted: function() {
+
+  mounted () {
     axios.get('/api/test')
       .then((res) => {
-        console.log("res")
+        console.log(res)
       })
   }
 }
