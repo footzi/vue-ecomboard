@@ -1,0 +1,161 @@
+{
+    "menu": {
+        "data": [
+            { "id": "1", "name": "Главная", "href": "/" },
+            { "id": "2", "name": "Обо мне", "href": "/about" },
+            {
+                "id": "3",
+                "name": "Каталог",
+                "href": "/catalog",
+                "child": [
+                    { "id": "1", "name": "Все", "href": "/catalog" },
+                    {
+                        "id": "2",
+                        "name": "Украшения",
+                        "child": [
+                            {
+                                "id": "1",
+                                "name": "Серьги",
+                                "href": "/catalog/test"
+                            },
+                            {
+                                "id": "2",
+                                "name": "Кольца",
+                                "href": "/catalog/test"
+                            },
+                            {
+                                "id": "3",
+                                "name": "Кулоны и подвески",
+                                "href": "/catalog/test"
+                            },
+                            {
+                                "id": "4",
+                                "name": "Броши и заколки",
+                                "href": "/catalog/test"
+                            },
+                            {
+                                "id": "5",
+                                "name": "Комплекты",
+                                "href": "/catalog/test"
+                            },
+                            {
+                                "id": "6",
+                                "name": "Разное",
+                                "href": "/catalog/test"
+                            }
+                        ]
+                    },
+                    {
+                        "id": "3",
+                        "name": "Интерьер",
+                        "child": [
+                            {
+                                "id": "1",
+                                "name": "Букеты",
+                                "href": "/catalog/test"
+                            }
+                        ]
+                    }
+                ]
+            },
+            { "id": "4", "name": "Доставка/оплата", "href": "/pay" },
+            { "id": "5", "name": "Обучение", "href": "/education" },
+            { "id": "6", "name": "Контакты", "href": "/contacts" }
+        ]
+    },
+    "social": {
+        "data": [
+            {
+                "id": "1",
+                "name": "Вконтакте",
+                "href": "vk.com",
+                "image": "/upload/vk.png"
+            },
+            {
+                "id": "2",
+                "name": "Instagram",
+                "href": "instargam.com",
+                "image": "/upload/inst.png"
+            },
+            {
+                "id": "3",
+                "name": "Facebook",
+                "href": "facebook.com",
+                "image": "/upload/fb.png"
+            },
+            {
+                "id": "Yarmarka",
+                "href": "yarmarka.com",
+                "name": "Ярмарка мастеров",
+                "image": "/upload/ym.png"
+            }
+        ]
+    },
+    "catalogPreview": {
+        "data": [
+            {
+                "id": "1",
+                "category": "Брошь",
+                "name": "Красное танго",
+                "image": "/upload/1.jpg",
+                "link": "/test"
+            },
+            {
+                "id": "2",
+                "category": "Брошь",
+                "name": "Красное танго",
+                "image": "/upload/2.jpg",
+                "link": "/test"
+            },
+            {
+                "id": "3",
+                "category": "Брошь",
+                "name": "Красное танго",
+                "image": "/upload/3.jpg",
+                "link": "/test"
+            },
+            {
+                "id": "4",
+                "category": "Брошь",
+                "name": "Красное танго",
+                "image": "/upload/4.jpg",
+                "link": "/test"
+            },
+            {
+                "id": "5",
+                "category": "Брошь",
+                "name": "Красное танго",
+                "image": "/upload/5.jpg",
+                "link": "/test"
+            },
+            {
+                "id": "6",
+                "category": "Брошь",
+                "name": "Красное танго",
+                "image": "/upload/6.jpg",
+                "link": "/test"
+            },
+            {
+                "id": "7",
+                "category": "Брошь",
+                "name": "Красное танго",
+                "image": "/upload/7.jpg",
+                "link": "/test"
+            },
+            {
+                "id": "8",
+                "category": "Брошь",
+                "name": "Красное танго",
+                "image": "/upload/8.jpg",
+                "link": "/test"
+            },
+            {
+                "id": "9",
+                "category": "Брошь",
+                "name": "Красное танго",
+                "image": "/upload/9.jpg",
+                "link": "/test"
+            }
+        ]
+    }
+}
