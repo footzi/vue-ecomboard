@@ -11,7 +11,7 @@ app.get('/api/test',(req: Request, res: Response) => {
     res.send({"menu": "1"});
 })
 
-app.use(serveStatic(path.join(__dirname, '../dist')));
+app.use(serveStatic(path.join(__dirname, '../')));
 
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`);

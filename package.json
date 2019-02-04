@@ -3,8 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "postinstall": "npm run build",
-    "start": "ts-node ./server/index.ts",
+    "postinstall": "npm run build & tsc",
+    "start": "node ./dist/server/index.js",
     "serve": "nodemon --watch & vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
