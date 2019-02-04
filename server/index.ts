@@ -5,7 +5,7 @@ const app = express();
 const serveStatic = require('serve-static');
 const path = require('path');
 const port = process.env.PORT || 3030;
-const json = require('./test.json');
+const json = require('../test-data/test.json');
 
 app.get('/api/test',(req: Request, res: Response) => {
     res.status(200);
