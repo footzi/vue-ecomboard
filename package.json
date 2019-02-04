@@ -3,13 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "npm run build && npm run server:prod",
+    "postinstall": "npm run build",
+    "start": "ts-node ./server/index.ts",
     "serve": "nodemon --watch & vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "test:unit": "vue-cli-service test:unit",
-    "server:watch": "nodemon --watch",
-    "server:prod": "ts-node ./server/index.ts"
+    "server:watch": "nodemon --watch"
   },
   "dependencies": {
     "axios": "^0.18.0",

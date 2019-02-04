@@ -14,5 +14,5 @@ app.get('/api/test',(req: Request, res: Response) => {
 app.use(serveStatic(path.join(__dirname, '../dist')));
 
 app.listen(port, () => {
-    console.log(`Examplee app listening on port ${port}`);
+    console.log(`Example app listening on port ${port}`);
 });
