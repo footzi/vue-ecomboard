@@ -1,18 +1,20 @@
-import { createConnection } from "typeorm";
-import config from './config';
-import IObject from './interfaces';
 import express from 'express';
 import serveStatic from 'serve-static';
 import path from 'path';
 import Router from './routes';
+import { createConnection, ConnectionOptions } from 'typeorm';
+import { config } from './config';
+import IConfig from './interfaces';
 import { Projects } from './entities/Projects';
+
+// const db_config: ConnectionOptions = database_config;
 
 class App {
     private static instanse: App
-    private readonly config: IObject
+    private readonly config: IConfig
     private app: express.Application
 
-    private constructor(config: IObject) {
+    private constructor(config: IConfig) {
         this.config = config;
         this.app = express();
         this.app.use(serveStatic(path.join(__dirname, '../')));
@@ -29,7 +31,7 @@ class App {
     }
 
     public start() {
-        createConnection()
+        createConnection(config.database)
             .then(() => {
                 let project = new Projects();
                 project.name = '100';
@@ -42,8 +44,8 @@ class App {
                 //         console.log("Photo has been saved. Photo i is", project.id);
                 //     });
 
-                this.app.listen(this.config.port, () => {
-                    console.log(`Example app listening on port ${this.config.port}`);
+                this.app.listen(this.config.app.port, () => {
+                    console.log(`Example app listening on port ${this.config.app.port}`);
                 })
             })
             .catch((error: string) => {
