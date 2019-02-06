@@ -3,13 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "postinstall": "npm run build",
-    "start": "NODE_ENV=production tsc & node ./dist/index.js",
+    "postinstall": "npm run tsc & npm run build",
+    "start": "NODE_ENV=production & node ./dist/index.js",
     "serve": "npm run server:watch & vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "test:unit": "vue-cli-service test:unit",
-    "server:watch": "NODE_ENV=development nodemon --watch"
+    "server:watch": "NODE_ENV=development nodemon --watch",
+    "tsc": "tsc"
   },
   "dependencies": {
     "axios": "^0.18.0",
