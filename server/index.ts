@@ -14,7 +14,7 @@ class App {
     private constructor(config: IConfig) {
         this.config = config;
         this.app = express();
-        this.app.use(serveStatic(path.join(__dirname, '../')));
+        this.app.use(serveStatic(path.join(__dirname, '../dist')));
 
         this.setRoutes();
     }
@@ -28,18 +28,15 @@ class App {
     }
 
     public start() {
-        this.app.listen(this.config.app.port, () => {
-            console.log(`Example app listening on port ${this.config.app.port}`);
-        })
-        // createConnection(config.database)
-        //     .then(() => {
-        //         this.app.listen(this.config.app.port, () => {
-        //             console.log(`Example app listening on port ${this.config.app.port}`);
-        //         })
-        //     })
-        //     .catch((error: string) => {
-        //         console.log(`Error connection to database ${error}`);
-        //     });    
+        createConnection(config.database)
+            .then(() => {
+                this.app.listen(this.config.app.port, () => {
+                    console.log(`Example app listening on port ${this.config.app.port}`);
+                })
+            })
+            .catch((error: string) => {
+                console.log(`Error connection to database ${error}`);
+            });    
     }
 }
 
