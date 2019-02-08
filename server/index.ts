@@ -28,15 +28,18 @@ class App {
     }
 
     public start() {
-        createConnection(config.database)
-            .then(() => {
-                this.app.listen(this.config.app.port, () => {
-                    console.log(`Example app listening on port ${this.config.app.port}`);
-                })
-            })
-            .catch((error: string) => {
-                console.log(`Error connection to database ${error}`);
-            });    
+        this.app.listen(this.config.app.port, () => {
+            console.log(`Example app listening on port ${this.config.app.port}`);
+        })
+        // createConnection(config.database)
+        //     .then(() => {
+        //         this.app.listen(this.config.app.port, () => {
+        //             console.log(`Example app listening on port ${this.config.app.port}`);
+        //         })
+        //     })
+        //     .catch((error: string) => {
+        //         console.log(`Error connection to database ${error}`);
+        //     });    
     }
 }
 
