@@ -14,7 +14,7 @@ class App {
     private constructor(config: IConfig) {
         this.config = config;
         this.app = express();
-        this.app.use(serveStatic(path.join(__dirname, '../')));
+        this.app.use(serveStatic(path.join(__dirname, '../dist')));
 
         this.setRoutes();
     }
