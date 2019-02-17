@@ -3,20 +3,20 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "postinstall": "npm run tsc & npm run build",
+    "postinstall": "tsc & npm run build",
     "start": "node ./dist/index.js",
     "serve": "npm run server:watch & vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "test:unit": "vue-cli-service test:unit",
-    "server:watch": "NODE_ENV=development nodemon --watch",
-    "tsc": "tsc"
+    "server:watch": "NODE_ENV=development nodemon --watch"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.7.1",
     "axios": "^0.18.0",
     "express": "^4.16.4",
     "material-design-icons-iconfont": "^4.0.4",
+    "multer": "^1.4.1",
     "mysql": "^2.16.0",
     "nodemon": "^1.18.9",
     "register-service-worker": "^1.5.2",
@@ -28,6 +28,7 @@
   },
   "devDependencies": {
     "@types/express": "^4.16.1",
+    "@types/multer": "^1.3.7",
     "@types/node": "^10.12.21",
     "@vue/cli-plugin-babel": "^3.0.4",
     "@vue/cli-plugin-eslint": "^3.0.4",
@@ -42,6 +43,8 @@
     "eslint-plugin-vue": "^5.0.0",
     "node-sass": "^4.9.0",
     "sass-loader": "^7.1.0",
+    "stylelint-scss": "^3.5.3",
+    "stylelint-selector-bem-pattern": "^2.0.0",
     "ts-node": "^8.0.2",
     "typescript": "^3.3.1",
     "vue-template-compiler": "^2.5.21"
@@ -53,7 +56,8 @@
     },
     "extends": [
       "plugin:vue/essential",
-      "@vue/standard"
+      "@vue/standard",
+      "./.eslintrc"
     ],
     "rules": {},
     "parserOptions": {

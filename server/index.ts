@@ -15,7 +15,6 @@ class App {
         this.config = config;
         this.app = express();
         this.app.use(serveStatic(path.join(__dirname, '../dist')));
-
         this.setRoutes();
     }
 
