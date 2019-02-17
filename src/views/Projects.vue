@@ -1,5 +1,5 @@
 <template>
-    <v-layout align-center justify-center wrap fill-height flex>
+    <v-layout align-center justify-center wrap fill-height flex class="Progects">
         <v-tabs class="flex md4"
             color="cyan"
             dark
@@ -30,28 +30,36 @@
 					></v-text-field>
 					<v-checkbox
 						v-model="confirm"
-						:label="'Вы уверены?'"
+						:label="'Подтвердите создание'"
+						:rules="checkboxRules"
 						color="cyan"
 					></v-checkbox>
                     <v-btn @click="clear">Очистить</v-btn>
-                    <v-btn @click="nextCreate" :disabled="!valid">Далее</v-btn>
+                    <v-btn @click="nextCreate" :disabled="!valid" :loading="preloader">Далее</v-btn>
                 </v-form>
+				<v-alert :value="error" type="error">
+					{{error}}
+				</v-alert>
             </v-tab-item>
 
             <v-tab-item :key="2">
                 <v-form @sumbit="nextSelect">
                     <v-radio-group>
-                        <v-radio color="cyan" label="Цветочный блюз" value="progect1"></v-radio>
-                        <v-radio color="cyan" label="Мастерская 'Ясень пень'" value="progect2"></v-radio>
+						<template  v-for="item in projects">
+                        	<v-radio color="cyan" :label="item.name" :value="item.id"  :key="item.id" />
+						</template>
                     </v-radio-group>
                     <v-btn @click="nextSelect">Далее</v-btn>
                 </v-form>
             </v-tab-item>
         </v-tabs>
+
     </v-layout>
 </template>
 
 <script>
+import {mapActions, mapGetters} from 'vuex';
+
 export default {
 	data: () => {
 		return {
@@ -66,24 +74,58 @@ export default {
 			urlRules: [
 				(v) => !!v || 'Пожалуйста введите url',
 				(v) => (v && v.length >= 6) || 'Url слишком короткий - минимум 6 символов'
-			] 
+			],
+			checkboxRules: [
+				(v) => !!v || 'Для продолжения необходимо подтвердить',
+			]
 		}
 	},
 
+	computed: {
+		...mapGetters({
+			projects : 'GET_PROJECTS',
+			preloader: 'GET_PRELOADER',
+			error    : 'GET_ERROR'
+		})
+	},
+	
+	mounted() {
+		this.getProjects();
+		//console.log(this.$store.dispatch('getProgects'));
+		//console.log(this.getProgects());
+	},
+
 	methods: {
+		...mapActions(['getProjects', 'createProject']),
+		
+
+		/**
+		 * Метод очищает форму
+		 */
 		clear() {
 			this.name = '';
 			this.url = '';
 			this.confirm = '';
 		},
 
+		/**
+		 * Метод создает новый проект
+		 */
 		nextCreate(event) {
 			event.preventDefault();
-			console.log('create')
+
+			const data = new FormData();
+			data.append('name', this.name)
+			data.append('url', this.url)
+
+			this.createProject(data);
 		},
 
+		/**
+		 * Метод переключает на следующиц шаг после выбора проекта
+		 */
 		nextSelect() {
-			console.log('select')
+			console.log('select');
 		}
 	}
 }
